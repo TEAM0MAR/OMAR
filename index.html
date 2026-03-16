@@ -8,30 +8,30 @@
     <style>
         :root { --gold: #ffcc00; --blue: #00acee; --bg: #050505; --panel: #111; }
         body { font-family: 'Cairo', sans-serif; background: var(--bg); color: #fff; margin: 0; padding: 20px; }
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--gold); padding-bottom: 20px; }
-        .logo-text { font-size: 2.5rem; font-weight: 900; color: var(--gold); }
-        .control-panel { background: var(--panel); padding: 20px; border-radius: 12px; border: 1px solid #222; margin-bottom: 25px; }
-        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
-        .field label { display: block; font-size: 0.7rem; color: #888; margin-bottom: 5px; }
-        .field input { width: 90%; background: #000; border: 1px solid #333; color: #fff; padding: 8px; border-radius: 4px; text-align: center; }
-        .main-btn { grid-column: 1 / -1; padding: 15px; background: var(--blue); color: #fff; font-weight: 900; border-radius: 8px; cursor: pointer; border: none; margin-top: 10px; font-size: 1rem; }
-        .stats-row { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .stat-card { background: var(--panel); padding: 15px; border-radius: 12px; flex: 1; text-align: center; border-bottom: 4px solid var(--blue); min-width: 170px; }
-        .stat-card h4 { font-size: 0.75rem; color: #aaa; margin: 0; }
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid var(--gold); padding-bottom: 15px; }
+        .logo-text { font-size: 2.2rem; font-weight: 900; color: var(--gold); }
+        .control-panel { background: var(--panel); padding: 15px; border-radius: 12px; border: 1px solid #222; margin-bottom: 20px; }
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+        .field label { display: block; font-size: 0.65rem; color: #888; margin-bottom: 5px; text-align: center; }
+        .field input { width: 90%; background: #000; border: 1px solid #333; color: #fff; padding: 8px; border-radius: 4px; text-align: center; font-size: 0.9rem; }
+        .main-btn { grid-column: 1 / -1; padding: 15px; background: var(--blue); color: #fff; font-weight: 900; border-radius: 8px; cursor: pointer; border: none; margin-top: 10px; }
+        .stats-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .stat-card { background: var(--panel); padding: 15px; border-radius: 12px; flex: 1; text-align: center; border-bottom: 4px solid var(--blue); min-width: 150px; }
+        .stat-card h4 { font-size: 0.7rem; color: #aaa; margin: 0; }
         .stat-card p { font-size: 1.1rem; font-weight: 900; color: var(--gold); margin: 8px 0 0 0; }
         .table-wrapper { position: relative; background: var(--panel); border-radius: 15px; overflow: hidden; border: 1px solid #222; }
         .vip-table { width: 100%; border-collapse: collapse; z-index: 1; position: relative; }
-        .vip-table th { background: #1a1a1a; color: var(--gold); padding: 12px; font-size: 0.85rem; }
+        .vip-table th { background: #1a1a1a; color: var(--gold); padding: 10px; font-size: 0.8rem; }
         .vip-table td { padding: 10px; border-bottom: 1px solid #222; text-align: center; font-size: 0.8rem; }
-        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); font-size: 8vw; font-weight: 900; color: rgba(255, 204, 0, 0.03); pointer-events: none; z-index: 0; }
+        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); font-size: 8vw; font-weight: 900; color: rgba(255, 204, 0, 0.03); pointer-events: none; }
         .day-label { background: #222 !important; color: var(--gold); font-weight: bold; }
     </style>
 </head>
-<body>
+<body onload="runCalculations()">
 
     <div class="header">
         <div class="logo-text">TEAM OMAR 👑</div>
-        <p>نظام الحسابات المتطور - يدعم نسب الدخول المنخفضة</p>
+        <p style="font-size: 0.8rem; color: #888;">نظام الحسابات المتطور - يدعم نسب الدخول المنخفضة</p>
     </div>
 
     <div class="control-panel">
@@ -41,4 +41,5 @@
             <div class="field"><label>الدخول (%)</label><input type="number" id="risk" value="0.83" step="0.01"></div>
             <div class="field"><label>أقل ربح (%)</label><input type="number" id="pMin" value="50"></div>
             <div class="field"><label>أقصى ربح (%)</label><input type="number" id="pMax" value="55"></div>
-            <div class="
+            <div class="field"><label>الحجم المطلوب</label><input type="number" id="vTarget" value="520"></div>
+            <div class="field"><label>إشارات أساسية</label><input type="number" id="baseSigs" value="
